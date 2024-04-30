@@ -76,7 +76,7 @@ ul.list-articles li {
 .clear {clear: both;}
 
 .header {
-	background: #3F4137;
+	background: 9798A3;
 	height: 60px;
 }
 
@@ -390,3 +390,5 @@ ul.lang-list li a:hover {color: #fdc073;}
     min-width: 200px;
     font-size: 16px;
 }
+
+background-image: url("../images/background.jpg");

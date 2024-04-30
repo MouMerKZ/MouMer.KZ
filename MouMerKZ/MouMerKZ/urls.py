@@ -1,11 +1,19 @@
-from django.urls import path, re_path
+from django.conf.urls.static import static
+from django.contrib import admin
+from django.urls import path
 
+from MouMerKZ import settings
 from lol.views import *
+from django.urls import path, include
 
 urlpatterns = [
-    path('', index, name='home'),
-    path('about/', about, name='about'),
-    path('contact/', contact, name='contact'),
-    path('post/<int:post_id>/', show_post, name='post')
+    path('admin/', admin.site.urls),
+    path('', include('lol.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = pageNotFound
+
 
