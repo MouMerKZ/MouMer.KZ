@@ -1,5 +1,6 @@
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect, get_object_or_404
+from lol.models import FlashGames
 
 from .models import *
 
@@ -19,7 +20,7 @@ def about(request):
 
 
 def contact(request):
-    return HttpResponse("Обратная связь")
+    return render(request, 'lol/contact.html', {'menu': menu, 'title': 'Обратная связь'})
 
 
 def pageNotFound(request, exception):
@@ -58,6 +59,7 @@ def show_category(request, cat_id):
 
 
 def game_view(request):
-    return render(request, 'lol/game.html')
+    flash_games = FlashGames.objects.all()
+    return render(request, 'lol/game.html', {'flash_games': flash_games})
 
 

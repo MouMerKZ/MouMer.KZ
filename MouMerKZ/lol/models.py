@@ -19,8 +19,8 @@ class Lol(models.Model):
         return reverse('post', kwargs={'post_slug': self.slug})
 
     class Meta:
-        verbose_name = 'Игры'
-        verbose_name_plural = 'Игры'
+        verbose_name = 'Пост'
+        verbose_name_plural = 'Посты'
         ordering = ['time_create', 'title']
 
 
@@ -44,6 +44,8 @@ class FlashGames(models.Model):
     name = models.CharField(max_length=100, verbose_name="Название")
     file = models.FileField(upload_to='games/', verbose_name="Загружить файл(SWF)")  # Путь для загрузки файлов флэш-игр
     post = models.ForeignKey(Lol, on_delete=models.CASCADE, related_name='flash_games')  # Связь с моделью Post
+    width = models.PositiveIntegerField(default=640)
+    height = models.PositiveIntegerField(default=480)
 
     def __str__(self):
         return self.name

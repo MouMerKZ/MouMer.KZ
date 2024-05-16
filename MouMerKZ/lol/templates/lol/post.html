@@ -9,8 +9,11 @@
 {% for flash_game in flash_games %}
     <div class="flash-game">
         <h3>{{ flash_game.name }}</h3>
-        <embed src="{{ flash_game.file.url }}" width="640" height="480">
+        <embed src="{{ flash_game.file.url }}" width="{{ flash_game.width }}" height="{{ flash_game.height }}">
     </div>
+
+
+
 {% endfor %}
 {{post.content|linebreaks}}
 {% endblock %}
