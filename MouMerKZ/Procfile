@@ -1,1 +1,1 @@
-web: gunicorn MouMerKZ.wsgi
+web: gunicorn MouMerKZ.wsgi:application
