@@ -1,1 +1,1 @@
-web: gunicorn MouMerKZ.wsgi
+web: waitress-serve --port=8000 MouMerKZ.wsgi:application
