@@ -3,7 +3,7 @@ services:
     name: moumerkz
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn <имя_твоего_проекта>.wsgi:application
+    startCommand: gunicorn MouMerKZ.wsgi:application
     envVars:
       - key: PYTHON_VERSION
         value: 3.10
