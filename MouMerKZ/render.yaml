@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: moumerkz
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn MouMerKZ.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: MouMerKZ.settings
+      - key: PYTHON_VERSION
+        value: 3.11
