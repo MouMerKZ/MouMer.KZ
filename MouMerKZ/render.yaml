@@ -2,10 +2,13 @@ services:
   - type: web
     name: moumerkz
     env: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn MouMerKZ.wsgi:application"
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn <имя_твоего_проекта>.wsgi:application
     envVars:
-      - key: DJANGO_SETTINGS_MODULE
-        value: MouMerKZ.settings
       - key: PYTHON_VERSION
-        value: 3.11
+        value: 3.10
+    packages:
+      - libjpeg-dev
+      - zlib1g-dev
+      - libpng-dev
+      - libfreetype6-dev
